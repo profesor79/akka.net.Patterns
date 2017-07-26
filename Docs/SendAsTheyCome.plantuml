@@ -1,0 +1,10 @@
+@startuml
+
+state "Just send messages \n as they come" as case1 
+case1 --> FireAndForget 
+FireAndForget -->FireAndForget: increase message counter
+FireAndForget -->FireAndForgetHold: message count > parameter
+FireAndForgetHold -->FireAndForget: timerElapsed
+
+
+@enduml

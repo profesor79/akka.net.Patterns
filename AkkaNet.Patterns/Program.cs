@@ -14,11 +14,20 @@
 
 namespace AkkaNet.Patterns
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     /// <summary>The program.</summary>
     internal class Program
     {
         /// <summary>The main.</summary>
         /// <param name="args">The args.</param>
-        private static void Main(string[] args) { }
+        private static void Main(string[] args)
+        {
+            
+            var a = new List<int>();
+            var b = a.Where(e => e > 10).ToList();
+
+        }
     }
 }

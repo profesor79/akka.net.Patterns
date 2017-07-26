@@ -1,0 +1,10 @@
+@startuml
+
+state " send messages \n on same interval" as case2 
+case2 --> FireOnSameIntervals 
+FireOnSameIntervals -->FireOnSameIntervalsHold : wait for timer
+FireOnSameIntervalsHold --> FireOnSameIntervals: timerElapsed
+
+
+
+@enduml

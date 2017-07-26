@@ -1,0 +1,11 @@
+@startuml
+
+state " send message \n after receiviwing confirmation \n that previous one is finished" as case3 
+case3--> FireOnAfterConfirmation
+
+FireOnAfterConfirmation-->FireOnAfterConfirmationHold: message sent
+FireOnAfterConfirmationHold -right->FireOnAfterConfirmationHold: confirmation\n received:\n false
+FireOnAfterConfirmationHold -down->FireOnAfterConfirmationHold: timer\n elapsed:\n false
+FireOnAfterConfirmationHold -up->FireOnAfterConfirmation: confirmation && tiimer
+
+@enduml

@@ -146,5 +146,11 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AkkaNet.Patterns\AkkaNet.Patterns.csproj">
+      <Project>{AA1AF52D-6770-4475-B8C7-7B90B53E2487}</Project>
+      <Name>AkkaNet.Patterns</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

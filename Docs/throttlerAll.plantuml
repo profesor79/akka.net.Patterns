@@ -1,0 +1,20 @@
+@startuml
+state "Just send messages \n as they come" as case1
+case1 --> FireAndForget 
+FireAndForget -->FireAndForget: increase message counter
+FireAndForget -->FireAndForgetHold: message count > parameter
+FireAndForgetHold -->FireAndForget: timerElapsed
+
+state " send messages \n on same interval" as case2
+case2 --> FireOnSameIntervals 
+FireOnSameIntervals -->FireOnSameIntervalsHold : wait for timer
+FireOnSameIntervalsHold  --> FireOnSameIntervals: timerElapsed
+
+state " send message \n after receiviwing confirmation \n that previous one is finished"  as case3
+case3-->  FireOnAfterConfirmation
+
+FireOnAfterConfirmation-->FireOnAfterConfirmationHold: message sent
+FireOnAfterConfirmationHold -right->FireOnAfterConfirmationHold: confirmation received: false
+FireOnAfterConfirmationHold -down->FireOnAfterConfirmationHold: timer elapsed: false
+FireOnAfterConfirmationHold -up->FireOnAfterConfirmation: confirmation && tiimer
+@enduml
